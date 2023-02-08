@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { getProducts } from "../../helpers/product";
 import ProductGridSingle from "../../components/product/ProductGridSingle";
+import React,{useEffect } from "react"
 
 const ProductGrid = ({
   spaceBottomClass,
@@ -16,10 +17,16 @@ const ProductGrid = ({
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
   const prods = getProducts(products, category, type, limit)
-  
+
+
+
+
   return (
+   
     <Fragment>
-      {prods?.map(product => {
+      {
+      
+      prods?.map(product => {
         return (
           <div className="col-xl-3 col-md-6 col-lg-4 col-sm-6" key={product.id}>
             <ProductGridSingle
